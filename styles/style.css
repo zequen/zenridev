@@ -26,6 +26,14 @@ header {
   background: #29315c;
 }
 
+@supports (position: sticky) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
 nav {
   min-height: 70px;
   display: flex;
@@ -230,7 +238,7 @@ a:active {
 }
 
 @media (max-width: 1195px) {
-  section {
+  .indexHero {
     padding: 0 3%;
     transition: 0.2s;
   }
@@ -257,7 +265,7 @@ a:active {
     height: auto;
   }
   .indexHeroText a.indexSecondButton {
-    margin-left: 0;
+    margin-left: 10px;
     margin-top: 20px;
   }
 }
