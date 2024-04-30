@@ -14,4 +14,14 @@ document.querySelectorAll(".navLink").forEach((n) =>
   })
 );
 
+const sr = ScrollReveal({
+  distance: "65px",
+  duration: 2600,
+  delay: 450,
+  reset: true,
+});
+
+sr.reveal(".indexHeroText", { delay: 200, origin: "top" });
+sr.reveal(".indexHeroImage", { delay: 450, origin: "top" });
+
 console.log("works");
