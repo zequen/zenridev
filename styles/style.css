@@ -121,6 +121,8 @@ a:active {
   }
 }
 
+/* -------------------------------------------------------------------footer---------------------------------------------------------------------------------- */
+
 .footerBar {
   max-width: 1170px;
   background-color: #29315c;
@@ -395,4 +397,81 @@ footer {
 .indexCodesReleaseDate {
   color: lightslategrey;
   font-style: italic;
+}
+
+.characters {
+  padding: 2% 10%;
+  background-color: #182449;
+}
+
+.charactersHeading {
+  margin: 0 4.5% 0 4.5%;
+  padding-bottom: 15px;
+  color: #e6f7ff;
+  font-size: 2rem;
+}
+
+.charactersSearchBar {
+  margin: 0 4.5% 0 4.5%;
+  margin-bottom: 20px;
+}
+
+.charactersSearchBar form {
+  position: relative;
+}
+
+.charactersSearchBar input[type="text"] {
+  padding: 10px 30px 10px 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.charactersSearchBar input[type="text"]:focus {
+  outline: none;
+  border-color: #29315c;
+}
+
+.charactersSearchBar i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  color: #888;
+}
+
+.charactersSearchBar i:hover {
+  color: #555;
+}
+
+.charactersGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 15px;
+}
+
+.charactersGridBox {
+  border-radius: 5px;
+  background: #29315c;
+  text-align: center;
+  opacity: 1;
+  margin-bottom: 25px;
+  width: 140px;
+}
+
+.charactersGridBox.hidden {
+  display: none;
+}
+
+.charactersGridBox h3 {
+  color: #a9d9ce;
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+.charactersGridBox img {
+  width: 100%;
+  height: auto;
 }

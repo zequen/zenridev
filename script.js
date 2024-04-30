@@ -23,8 +23,33 @@ const sr = ScrollReveal({
   reset: true,
 });
 
-sr.reveal(".indexHeroText", { delay: 150, origin: "top" });
-sr.reveal(".indexHeroImage", { delay: 400, origin: "top" });
-sr.reveal(".indexCodes", { delay: 550, origin: "top" });
+sr.reveal(".indexHeroText", { delay: 0, origin: "top" });
+sr.reveal(".indexHeroImage", { delay: 100, origin: "top" });
+sr.reveal(".indexCodes", { delay: 200, origin: "top" });
+sr.reveal(".charactersHeading", { delay: 0, origin: "top" });
+sr.reveal(".charactersSearchBar", { delay: 100, origin: "top" });
+sr.reveal(".charactersGrid", { delay: 200, origin: "top" });
+
+// search bar
+
+const search = () => {
+  const charactersSearchBox = document
+    .getElementById("charactersSearch")
+    .value.trim()
+    .toUpperCase();
+  const characters = document.querySelectorAll(".charactersGridBox");
+
+  characters.forEach((character) => {
+    const characterName = character
+      .querySelector("h3")
+      .textContent.trim()
+      .toUpperCase();
+    if (characterName.includes(charactersSearchBox)) {
+      character.style.display = "";
+    } else {
+      character.style.display = "none";
+    }
+  });
+};
 
 console.log("works");
