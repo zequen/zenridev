@@ -119,15 +119,17 @@ a:active {
   height: 100%;
   width: 100%;
   min-height: 60vh;
-
+  /* background: linear-gradient(
+    245.59deg,
+    #29315c 0%,
+    #182449 28.53%,
+    #0a1336 75.52%
+  ); */
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem;
-}
-
-section {
   padding: 0 19%;
 }
 
@@ -254,4 +256,43 @@ section {
     width: 100%;
     height: auto;
   }
+  .indexHeroText a.indexSecondButton {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+.indexCodes {
+  padding: 2% 10%;
+  background-color: #182449;
+}
+
+.indexCodesHeading {
+  padding-bottom: 15px;
+  color: #e6f7ff;
+  font-size: 2rem;
+}
+
+.indexCodes .indexCodesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 15px;
+}
+
+.indexCodesGrid .indexCodesGridBox {
+  border-radius: 5px;
+  background: #29315c;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.indexCodesGridBox h3 {
+  color: #a9d9ce;
+  font-size: 22px;
+  padding: 10px 0;
+}
+
+.indexCodesReleaseDate {
+  color: lightslategrey;
+  font-style: italic;
 }
