@@ -23,8 +23,8 @@ const sr = ScrollReveal({
   reset: true,
 });
 
-sr.reveal(".indexHeroText", { delay: 200, origin: "top" });
-sr.reveal(".indexHeroImage", { delay: 450, origin: "top" });
-sr.reveal(".indexCodes", { delay: 500, origin: "top" });
+sr.reveal(".indexHeroText", { delay: 150, origin: "top" });
+sr.reveal(".indexHeroImage", { delay: 400, origin: "top" });
+sr.reveal(".indexCodes", { delay: 550, origin: "top" });
 
 console.log("works");
