@@ -21,7 +21,9 @@ const sr = ScrollReveal({
   reset: true,
 });
 
+sr.reveal("header", { delay: 50, origin: "top" });
 sr.reveal(".indexHeroText", { delay: 200, origin: "top" });
 sr.reveal(".indexHeroImage", { delay: 450, origin: "top" });
+sr.reveal(".indexCodes", { delay: 500, origin: "top" });
 
 console.log("works");
