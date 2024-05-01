@@ -314,7 +314,7 @@ footer {
 } */
 
 @media (max-width: 1460px) {
-  section {
+  .indexHero {
     padding: 0 12%;
     transition: 0.2s;
   }
@@ -449,6 +449,7 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 0 15px;
 }
 
@@ -461,6 +462,11 @@ footer {
   width: 140px;
 }
 
+.charactersGridBox img:hover {
+  /* IMAGE CROPS OUTSIDE OF BOX!!!! FIX LATER */
+  transform: translateY(-5px);
+}
+
 .charactersGridBox.hidden {
   display: none;
 }
@@ -469,9 +475,11 @@ footer {
   color: #a9d9ce;
   font-size: 18px;
   padding: 10px 0;
+  transition: all 0.55s ease;
 }
 
 .charactersGridBox img {
   width: 100%;
   height: auto;
+  transition: all 0.55s ease;
 }
