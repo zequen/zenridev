@@ -116,7 +116,7 @@
         <h1 class="indexCodesHeading">Upcoming Events</h1>
         <div class="indexCarousel">
             <div class="carouselWrapper">
-                <i id="left" class="ri-arrow-left-s-line"></i>
+                <i id="left" class="ri-arrow-left-s-line" style="z-index: 100;"></i>
                 <ul class="indexActualCarousel">
                     <li class="carouselCard">
                         <h2>Just Intonation</h2>
@@ -134,20 +134,30 @@
                         <h2>Bygone Reminiscence</h2>
                         <span>In 6d 9h</span>
                     </li>
-                    <li class="carouselCard">
-                        <div class="carouselImage"><img src="images/logo_transparent.png" alt="img" draggable="false">
+
+                    <!-----Use my implementation as a guideline for how to do it in the future, you have some redundant styles now (i didnt remove them because i am lazy) and i did it all with inline styles because they're better ngl and PLEASE USE TAILWIND (css sucks) https://tailwindcss.com tyty, faye <3-->
+                    <li class="carouselCard" style="background-image: url(images/logo_transparent.png); background-size: cover; background-position: 50%; background-color: rgb(139, 83, 255); -webkit-backdrop-filter: opacity(1); backdrop-filter: opacity(1); "> <!--Ignore the background filter opacity, it does nothing but it also breaks everything when i remove it for some reason-->
+                        <!-----I set the background image of the carousel to the desired logo or image-->
+                        <div class="readabilityWrapper" style="width: 100%; height: 100%; background-color: rgb(0,0,0,0.3); position: absolute; border-radius: 8px; bottom: 0px; z-index: -50;"> <!----wrapped in absolutely positioned div, does nothing but darken the image for better readability, modify as desired-->
                         </div>
-                        <h2>Gift of Odyssey</h2>
-                        <span>In 6d 9h</span>
+                            <h2 style="z-index: 50;">Gift of Odyssey</h2>
+                            
+                            <span style="z-index: 50 ;">In 6d 9h</span>
+                        
                     </li>
-                    <li class="carouselCard">
-                        <div class="carouselImage"><img src="images/indexHeroImage.webp" alt="img" draggable="false">
+                    
+                    <li class="carouselCard" style="background-image: url(images/indexHeroImage.webp); background-size: cover; background-position: 50%; background-color: rgb(139, 83, 255); -webkit-backdrop-filter: opacity(1); backdrop-filter: opacity(1); ">
+                        
+                        <div class="readabilityWrapper" style="width: 100%; height: 100%; background-color: rgb(0,0,0,0.3); position: absolute; border-radius: 8px; bottom: 0px; z-index: -50;;">
                         </div>
-                        <h2>Dusty Trail's Lone Star</h2>
-                        <span>In 6d 9h</span>
+                            <h2 style="z-index: 50;">Dusty Trail's Lone Star</h2>
+                            
+                            <span style="z-index: 50 ;">In 6d 9h</span>
+                        
+                    </li>
                     </li>
                 </ul>
-                <i id="right" class="ri-arrow-right-s-line"></i>
+                <i id="right" class="ri-arrow-right-s-line" style="z-index: 100;"></i>
             </div>
         </div>
     </section>
