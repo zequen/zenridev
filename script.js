@@ -25,10 +25,17 @@ const sr = ScrollReveal({
 
 sr.reveal(".indexHeroText", { delay: 0, origin: "top" });
 sr.reveal(".indexHeroImage", { delay: 100, origin: "top" });
-sr.reveal(".indexCodes", { delay: 200, origin: "bottom" });
+sr.reveal(".indexCodesHeading", { delay: 0, origin: "bottom" });
+sr.reveal(".indexCodesGrid", { delay: 100, origin: "bottom" });
+sr.reveal(".indexCarouselHeading", { delay: 0, origin: "bottom" });
+sr.reveal(".indexCarousel", { delay: 0, origin: "bottom" });
+
 sr.reveal(".charactersHeading", { delay: 0, origin: "top" });
-sr.reveal(".charactersSearchBar", { delay: 100, origin: "top" });
+sr.reveal(".charactersSearchBar", { delay: 50, origin: "top" });
 sr.reveal(".charactersGridBox", { delay: 0, origin: "bottom" });
+
+sr.reveal(".tierListHeader", { delay: 50, origin: "top" });
+sr.reveal(".tierList", { delay: 50, origin: "bottom" });
 
 // search bar
 

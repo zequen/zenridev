@@ -217,22 +217,32 @@ footer {
 
 /* -------------------------------------------------------------------index.html---------------------------------------------------------------------------------- */
 
-.indexHero {
-  height: 100%;
+.indexBackgroundImage {
+  background-image: url(https://upload-os-bbs.hoyolab.com/upload/2024/02/10/17138284/966d24a314eab25030f70dc295c8db6a_3773521663887643236.png?x-oss-process=image%2Fresize%2Cs_1000%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp%2Fquality%2Cq_80);
+  position: relative;
+  background-size: cover;
+  padding: 16px;
+}
+
+.indexBackgroundImage::before {
+  content: "";
   width: 100%;
-  min-height: 60vh;
-  /* background: linear-gradient(
-    245.59deg,
-    #29315c 0%,
-    #182449 28.53%,
-    #0a1336 75.52%
-  ); */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+.indexHero {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem;
   padding: 0 19%;
+  z-index: 2;
 }
 
 .indexHeroText h1 {
@@ -367,6 +377,7 @@ footer {
 .indexCodes {
   padding: 2% 10%;
   background-color: #182449;
+  z-index: 3;
 }
 
 .indexCodesHeading {
@@ -405,6 +416,13 @@ footer {
   padding: 2% 10%;
   background-color: #0a1336;
 }
+
+.indexCarouselHeading {
+  padding-bottom: 15px;
+  color: #e6f7ff;
+  font-size: 2rem;
+}
+
 .indexCarousel {
   display: flex;
   justify-content: center;
