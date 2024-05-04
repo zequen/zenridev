@@ -230,7 +230,7 @@
                         </h2>
 
                         <span style="z-index: 50;">
-                            <div class="aventurineTimer">
+                            <div class="boothillTimer">
                                 <div>
                                     <span>Starts in
                                         <span class="days">0</span>d
@@ -255,7 +255,7 @@
                             Foretold</h2>
 
                         <span style="z-index: 50;">
-                            <div class="aventurineTimer">
+                            <div class="boothillTimer">
                                 <div>
                                     <span>Starts in
                                         <span class="days">0</span>d
@@ -317,52 +317,53 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <script>function updateCountdowns(countdowns) {
-        // Function to get current time in AEST
-        function getCurrentTimeInAEST() {
-            var now = new Date();
-            var timeOffset = now.getTimezoneOffset();
-            var aestOffset = 10; // AEST is UTC+10 (i think this changes with daylight savings soooo, idk how to account for that, im lazy)
-            return new Date(now.getTime() + (timeOffset + aestOffset) * 60000); // Convert minutes to milliseconds (mafs)
+            // Function to get current time in AEST
+            function getCurrentTimeInAEST() {
+                var now = new Date();
+                var timeOffset = now.getTimezoneOffset();
+                var aestOffset = 10; // AEST is UTC+10 (i think this changes with daylight savings soooo, idk how to account for that, im lazy)
+                return new Date(now.getTime() + (timeOffset + aestOffset) * 60000); // Convert minutes to milliseconds (mafs)
+            }
+
+            // Iterate over each countdown
+            countdowns.forEach(function (countdown) {
+                var targetDate = new Date(countdown.endDate); // Parse end date
+                var divClass = countdown.divClass;
+
+                var x = setInterval(function () {
+                    var nowAEST = getCurrentTimeInAEST(); // Get current time in AEST
+                    var distance = targetDate - nowAEST;
+
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Calculate days, hours, minutes, seconds (basic algebra)
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    var countdownElements = document.getElementsByClassName(divClass);
+                    Array.from(countdownElements).forEach(function (element) {
+                        element.querySelector('.days').innerHTML = days;
+                        element.querySelector('.hours').innerHTML = hours;
+                        element.querySelector('.minutes').innerHTML = minutes;
+                        element.querySelector('.seconds').innerHTML = seconds;
+
+                        if (distance < 0) {
+                            clearInterval(x);
+                            element.innerHTML = "EXPIRED";
+                        }
+                    });
+                }, 1000);
+            });
         }
-    
-        // Iterate over each countdown
-        countdowns.forEach(function(countdown) {
-            var targetDate = new Date(countdown.endDate); // Parse end date
-            var divClass = countdown.divClass;
-    
-            var x = setInterval(function() {
-                var nowAEST = getCurrentTimeInAEST(); // Get current time in AEST
-                var distance = targetDate - nowAEST;
-    
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Calculate days, hours, minutes, seconds (basic algebra)
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-                var countdownElements = document.getElementsByClassName(divClass);
-                Array.from(countdownElements).forEach(function(element) {
-                    element.querySelector('.days').innerHTML = days;
-                    element.querySelector('.hours').innerHTML = hours;
-                    element.querySelector('.minutes').innerHTML = minutes;
-                    element.querySelector('.seconds').innerHTML = seconds;
-    
-                    if (distance < 0) {
-                        clearInterval(x);
-                        element.innerHTML = "EXPIRED";
-                    }
-                });
-            }, 1000);
-        });
-    }
-    
-    // Example usage:
-    var countdowns = [
-        { divClass: "aventurineTimer", endDate: "2024-05-05T12:00:00+10:00" }, // Adjusted to AEST
-        { divClass: "robinTimer", endDate: "2024-05-06T15:30:00+10:00" }, // Adjusted to AEST (so then it doesnt matter what timezone the user is in,  itll calculate the correct time with AEST as the set time, i assume this is how it works in this game, i dont play it)
-        // Add more countdowns as needed
-    ];
-    
-    updateCountdowns(countdowns);
+
+        // Example usage:
+        var countdowns = [
+            { divClass: "aventurineTimer", endDate: "2024-05-08T14:59:00+10:00" }, // Adjusted to AEST
+            { divClass: "robinTimer", endDate: "2024-05-08T15:00:00+10:00" },
+            { divClass: "boothillTimer", endDate: "2024-05-29T14:59:00+10:00" }, // Adjusted to AEST (so then it doesnt matter what timezone the user is in,  itll calculate the correct time with AEST as the set time, i assume this is how it works in this game, i dont play it)
+            // Add more countdowns as needed
+        ];
+
+        updateCountdowns(countdowns);
     </script>
     <!-- custom javascript link -->
     <script src="script.js"></script>

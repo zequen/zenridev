@@ -156,32 +156,55 @@ carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
 
-document.addEventListener("DOMContentLoaded", function () {
-  var countDownDate = new Date("May 8, 2024 14:59:00").getTime();
-  var x = setInterval(function () {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
+function updateCountdowns(countdowns) {
+  // Function to get current time in AEST
+  function getCurrentTimeInAEST() {
+    var now = new Date();
+    var timeOffset = now.getTimezoneOffset();
+    var aestOffset = 10; // AEST is UTC+10 (i think this changes with daylight savings soooo, idk how to account for that, im lazy)
+    return new Date(now.getTime() + (timeOffset + aestOffset) * 60000); // Convert minutes to milliseconds (mafs)
+  }
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Iterate over each countdown
+  countdowns.forEach(function (countdown) {
+    var targetDate = new Date(countdown.endDate); // Parse end date
+    var divClass = countdown.divClass;
 
-    document.getElementsByClassName("days")[0].innerHTML = days;
-    document.getElementsByClassName("hours")[0].innerHTML = hours;
-    document.getElementsByClassName("minutes")[0].innerHTML = minutes;
-    document.getElementsByClassName("seconds")[0].innerHTML = seconds;
+    var x = setInterval(function () {
+      var nowAEST = getCurrentTimeInAEST(); // Get current time in AEST
+      var distance = targetDate - nowAEST;
 
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementsByClassName("days")[0].innerHTML = "00";
-      document.getElementsByClassName("hours")[0].innerHTML = "00";
-      document.getElementsByClassName("minutes")[0].innerHTML = "00";
-      document.getElementsByClassName("seconds")[0].innerHTML = "00";
-    }
-  }, 1000);
-});
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Calculate days, hours, minutes, seconds (basic algebra)
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      var countdownElements = document.getElementsByClassName(divClass);
+      Array.from(countdownElements).forEach(function (element) {
+        element.querySelector(".days").innerHTML = days;
+        element.querySelector(".hours").innerHTML = hours;
+        element.querySelector(".minutes").innerHTML = minutes;
+        element.querySelector(".seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+          clearInterval(x);
+          element.innerHTML = "EXPIRED";
+        }
+      });
+    }, 1000);
+  });
+}
+
+// Example usage:
+var countdowns = [
+  { divClass: "aventurineTimer", endDate: "2024-05-08T14:59:00+10:00" }, // Adjusted to AEST
+  { divClass: "robinTimer", endDate: "2024-05-08T15:00:00+10:00" },
+  { divClass: "boothillTimer", endDate: "2024-05-29T14:59:00+10:00" }, // Adjusted to AEST (so then it doesnt matter what timezone the user is in,  itll calculate the correct time with AEST as the set time, i assume this is how it works in this game, i dont play it)
+  // Add more countdowns as needed
+];
+
+updateCountdowns(countdowns);
 
 console.log("works");
