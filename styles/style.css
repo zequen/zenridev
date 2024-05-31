@@ -977,3 +977,248 @@ footer {
     display: none;
   }
 }
+
+/* acheron stuff---------------------------------------------------- */
+
+.dataTabs {
+}
+
+.tabs {
+  grid-gap: 5px;
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 150px;
+}
+
+@media (max-width: 992px) {
+  .tabs {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+@media (max-width: 992px) {
+  .single-tab {
+    min-height: 80px !important;
+  }
+}
+
+.single-tab {
+  background-color: #0a1336;
+  border: 2px solid #182449;
+  border-bottom: 5px solid #29315c;
+  cursor: pointer;
+  height: 80px;
+  opacity: 0.65;
+  text-align: center;
+  transition: 0.7s;
+}
+
+.single-tab.active {
+  background-color: #182449;
+  border: solid #29315c;
+  border-width: 2px 2px 5px;
+  color: #e6f7ff;
+  opacity: 1;
+}
+
+.single-tab.Lightning.active {
+  border-bottom-color: #a9d9ce;
+}
+
+.single-tab:hover {
+  opacity: 1;
+  transition: 0.7s;
+}
+
+@media (max-width: 992px) {
+  .top-icon {
+    align-items: center;
+    display: flex;
+    height: 28px !important;
+    justify-content: center;
+    margin: 8px auto 0 !important;
+    width: 28px !important;
+  }
+}
+
+.single-tab .top-icon {
+  align-items: center;
+  display: flex;
+  height: 42px;
+  justify-content: center;
+  margin: -21px auto 0;
+  width: 42px;
+}
+
+.single-tab.Lightning .top-icon {
+  background-color: #29315c;
+}
+
+.character-hsr-v2 p {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@media (max-width: 992px) {
+  .single-tab p {
+    font-weight: 500 !important;
+    line-height: 20px !important;
+    margin-top: 5px !important;
+  }
+}
+
+.single-tab p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 12px;
+}
+
+@media (max-width: 1200px) {
+  .single-tab p {
+    font-size: 16px;
+    text-transform: none;
+  }
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+svg:not(:host).svg-inline--fa,
+svg:not(:root).svg-inline--fa {
+  box-sizing: content-box;
+  overflow: visible;
+}
+
+@media (max-width: 992px) {
+  .top-icon svg {
+    font-size: 16px !important;
+    line-height: 16px !important;
+    margin-bottom: 0;
+  }
+}
+
+.single-tab .top-icon svg {
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------------credits.html-------------------------------------------------------------------------------- */
+.creditsDevs {
+  padding: 2% 10%;
+  background-color: #182449;
+  z-index: 3;
+}
+
+.creditsHeading {
+  padding-bottom: 15px;
+  color: #e6f7ff;
+  font-size: 2rem;
+}
+
+.creditsDevs .creditsGrid {
+  display: grid;
+  /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  margin-left: auto;
+  margin-right: auto;
+  gap: 15px;
+}
+
+.creditsGrid .creditsGridBox {
+  border-radius: 5px;
+  background: #29315c;
+  text-align: left;
+  padding: 30px 30px;
+}
+
+.creditsGridBox h3 {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 1%;
+  padding: 16px;
+  color: #a9d9ce;
+  font-size: 38px;
+}
+
+.creditsGridBox p {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-left: 16px;
+}
+
+@media (max-width: 600px) {
+  .creditsGridBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.creditsawards {
+  color: lightgray;
+  font-style: italic;
+}
+
+.creditsOlivineImage {
+  float: left;
+  width: auto;
+  height: 180px;
+  border-radius: 5%;
+  margin-top: 6px;
+}
+
+.creditsGridBox a {
+  float: right;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background-color: #182449;
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #f9fdff;
+  transition: all 0.5s ease;
+}
+
+.creditsIcons a:hover {
+  color: #182449;
+  background-color: #f9fdff;
+}
+
+@media (max-width: 600px) {
+  .creditsDevs .creditsGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .creditsGrid .creditsGridBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .creditsGridBox h3,
+  p {
+    text-align: center;
+  }
+  .creditsIcons {
+    margin-top: 7%;
+    margin-left: 7%;
+  }
+  .creditsIcons a {
+    display: block;
+  }
+}
