@@ -30,7 +30,7 @@ li {
   /*========== Colors (why didn't i think of doing something like this sooner) ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --black-color: #29315c;
-  --black-color-light: #182449;
+  --black-color-light: #0a1336;
   --black-color-lighten: #29315c;
   --white-color: #e6f7ff;
   --body-color: hsl(220, 100%, 97%);
@@ -423,6 +423,7 @@ footer {
   .footerColumn {
     width: 50%;
     margin-bottom: 30px;
+    padding-left: 24px;
   }
 }
 
@@ -520,26 +521,6 @@ footer {
   height: auto;
 }
 
-/* .indexHeroSocials {
-  position: absolute;
-  top: 40%;
-  padding: 0 9%;
-  transform: translateY(-50%);
-}
-
-.indexHeroSocials i {
-  display: block;
-  margin: 26px 0;
-  font-size: 24px;
-  color: #f9fdff;
-  transition: all 0.55s ease;
-}
-
-.indexHeroSocials i:hover {
-  color: #a9d9ce;
-  transform: translateY(-5px);
-} */
-
 @media (max-width: 1460px) {
   .indexHero {
     padding: 0 12%;
@@ -581,6 +562,12 @@ footer {
 }
 
 @media (max-width: 680px) {
+  .indexHeroText {
+    padding-top: 50px;
+  }
+  .indexHero {
+    padding-bottom: 50px;
+  }
   .indexHeroImage {
     width: 100%;
     height: auto;
@@ -625,6 +612,14 @@ footer {
 .indexCodesReleaseDate {
   color: lightslategrey;
   font-style: italic;
+}
+
+@media (max-width: 680px) {
+  .indexCodes {
+    padding: 6% 10%;
+    background-color: #182449;
+    z-index: 3;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
@@ -743,6 +738,14 @@ footer {
 @media screen and (max-width: 600px) {
   .wrapper .carousel {
     grid-auto-columns: 100%;
+  }
+  .carouselWrapper .indexActualCarousel {
+    grid-auto-columns: calc((100% / 1) - 12px);
+    font-size: 14px;
+  }
+  .indexEvents {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
