@@ -1210,8 +1210,7 @@ svg:not(:root).svg-inline--fa {
 }
 
 @media (max-width: 600px) {
-  .creditsGridBox h3,
-  p {
+  .creditsGridBox h3 p {
     text-align: center;
   }
   .creditsIcons {
