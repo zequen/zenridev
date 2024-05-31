@@ -201,9 +201,9 @@ function updateCountdowns(countdowns) {
 
 // Example usage:
 var countdowns = [
-  { divClass: "aventurineTimer", endDate: "2024-05-08T14:59:00+10:00" }, // Adjusted to AEST
-  { divClass: "robinTimer", endDate: "2024-05-08T15:00:00+10:00" },
-  { divClass: "boothillTimer", endDate: "2024-05-29T14:59:00+10:00" }, // Adjusted to AEST (so then it doesnt matter what timezone the user is in,  itll calculate the correct time with AEST as the set time, i assume this is how it works in this game, i dont play it)
+  { divClass: "aventurineTimer", endDate: "2024-06-15T14:59:00+10:00" }, // Adjusted to AEST
+  { divClass: "robinTimer", endDate: "2024-06-24T15:00:00+10:00" },
+  { divClass: "boothillTimer", endDate: "2024-06-29T14:59:00+10:00" }, // Adjusted to AEST (so then it doesnt matter what timezone the user is in,  itll calculate the correct time with AEST as the set time, i assume this is how it works in this game, i dont play it)
   // Add more countdowns as needed
 ];
 
