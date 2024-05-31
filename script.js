@@ -1,18 +1,18 @@
-// hamburger menu from https://youtu.be/flItyHiDm7E?si=5jFi-ZNtFSz1Lzq4
-const hamburgerMenu = document.querySelector(".hamburgerMenu");
-const navigationBar = document.querySelector(".navigationBar");
+// navbar stuff
+const showMenu = (toggleId, navId) => {
+  const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId);
 
-hamburgerMenu.addEventListener("click", () => {
-  hamburgerMenu.classList.toggle("active");
-  navigationBar.classList.toggle("active");
-});
+  toggle.addEventListener("click", () => {
+    // Add show-menu class to nav menu
+    nav.classList.toggle("show-menu");
 
-document.querySelectorAll(".navLink").forEach((n) =>
-  n.addEventListener("click", () => {
-    hamburgerMenu.classList.remove("active");
-    navigationBar.classList.remove("active");
-  })
-);
+    // Add show-icon to show and hide the menu icon
+    toggle.classList.toggle("show-icon");
+  });
+};
+
+showMenu("nav-toggle", "nav-menu");
 
 // scroll reveal
 
@@ -155,6 +155,8 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
+
+// faye's timer
 
 function updateCountdowns(countdowns) {
   // Function to get current time in AEST

@@ -5,39 +5,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- opengraph tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Character List | Honkai Star Rail | zenridev" />
+    <meta property="og:description" content="a really cool website that i made :3" />
+    <meta property="og:url" content="https://zenri.dev/characters" />
+    <meta property="og:image" content="logo_transparent.png" />
     <!-- remixicons.com icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <!-- adobe fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/tch2cyw.css">
     <link rel="icon" href="images/browser_image.png" type="image/png" />
     <link rel='stylesheet' type='text/css' media='screen' href='./styles/style.css'>
-    <title>Home | zenridev</title>
+    <title>Characters | zenridev</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="./" class="logo"><img src="./images/logo_transparent.png"></a>
-            <ul class="navigationBar">
-                <li class="navItem">
-                    <a href="./" class="navLink">Home</a>
-                </li>
-                <li class="navItem">
-                    <a href="./characters" class="navLink">Characters</a>
-                </li>
-                <li class="navItem">
-                    <a href="./tierlist" class="navLink">Tier List</a>
-                </li>
-                <li class="navItem">
-                    <a href="./tools" class="navLink">Tools</a>
-                </li>
-            </ul>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="./" class="nav__logo">
+                    <i class="ri-sword-fill"></i> zenridev
+                </a>
 
-            <div class="hamburgerMenu">
-                <span class="hamBARger"></span>
-                <span class="hamBARger"></span>
-                <span class="hamBARger"></span>
-                <!-- ITS FUNNY RIGHT -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="./" class="nav__link">Home</a></li>
+
+                    <li><a href="./characters" class="nav__link">Characters</a></li>
+                    <li><a href="./tierlist" class="nav__link">Tier List</a></li>
+                    <!--=============== DROPDOWN 1 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Tools <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="https://honkai.asagi-game.com/" class="dropdown__link" target="_blank">
+                                    <i class="ri-hammer-fill"></i> Character Builder
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.prydwen.gg/star-rail/team-builder" class="dropdown__link"
+                                    target="_blank">
+                                    <i class="ri-group-3-fill"></i> Team Builder
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pom.moe/" class="dropdown__link" target="_blank">
+                                    <i class="ri-database-fill"></i> Pom Database
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="./credits" class="nav__link">Credits</a></li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -279,7 +310,7 @@
                         <li><a href="./">Home</li></a>
                         <li><a href="./characters">Characters</li></a>
                         <li><a href="./tierlist">Tier List</li></a>
-                        <li><a href="./tools">Tools</li></a>
+                        <li><a href="./credits">Credits</li></a>
                     </ul>
                 </div>
                 <div class="footerColumn">

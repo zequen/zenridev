@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- opengraph tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="zenridev: A Honkai: Star Rail Guide Website" />
+    <meta property="og:title" content="zenridev | A Honkai: Star Rail Guide Website" />
     <meta property="og:description" content="a really cool website that i made :3" />
     <meta property="og:url" content="https://zenri.dev/" />
     <meta property="og:image" content="logo_transparent.png" />
@@ -21,32 +21,58 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="./" class="logo"><img src="./images/logo_transparent.png"></a>
-            <ul class="navigationBar">
-                <li class="navItem">
-                    <a href="./" class="navLink">Home</a>
-                </li>
-                <li class="navItem">
-                    <a href="./characters" class="navLink">Characters</a>
-                </li>
-                <li class="navItem">
-                    <a href="./tierlist" class="navLink">Tier List</a>
-                </li>
-                <li class="navItem">
-                    <a href="./tools" class="navLink">Tools</a>
-                </li>
-            </ul>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="./" class="nav__logo">
+                    <i class="ri-sword-fill"></i> zenridev
+                </a>
 
-            <div class="hamburgerMenu">
-                <span class="hamBARger"></span>
-                <span class="hamBARger"></span>
-                <span class="hamBARger"></span>
-                <!-- ITS FUNNY RIGHT -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="./" class="nav__link">Home</a></li>
+
+                    <li><a href="./characters" class="nav__link">Characters</a></li>
+                    <li><a href="./tierlist" class="nav__link">Tier List</a></li>
+                    <!--=============== DROPDOWN 1 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Tools <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="https://honkai.asagi-game.com/" class="dropdown__link" target="_blank">
+                                    <i class="ri-hammer-fill"></i> Character Builder
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.prydwen.gg/star-rail/team-builder" class="dropdown__link"
+                                    target="_blank">
+                                    <i class="ri-group-3-fill"></i> Team Builder
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://pom.moe/" class="dropdown__link" target="_blank">
+                                    <i class="ri-database-fill"></i> Pom Database
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="./credits" class="nav__link">Credits</a></li>
+                </ul>
             </div>
         </nav>
     </header>
+
     <div class="indexBackgroundImage">
         <section class="indexHero">
             <div class="indexHeroText">
@@ -64,6 +90,7 @@
             <img src="./images/indexHeroImage.webp" class="indexHeroImage"></a>
         </section>
     </div>
+
     <!-- <div class="indexHeroSocials">
         <a href="#"><i class="ri-twitter-x-fill"></i></a>
         <a href="#"><i class="ri-youtube-fill"></i></a>
@@ -115,6 +142,7 @@
             </div>
         </div>
     </section>
+
     <section class="indexEvents">
         <h1 class="indexCarouselHeading">Banners</h1>
         <div class="indexCarousel">
@@ -272,6 +300,7 @@
             </div>
         </div>
     </section>
+
     <footer>
         <section class="footerBar">
             <div class="footerRow">
@@ -285,7 +314,7 @@
                         <li><a href="./">Home</li></a>
                         <li><a href="./characters">Characters</li></a>
                         <li><a href="./tierlist">Tier List</li></a>
-                        <li><a href="./tools">Tools</li></a>
+                        <li><a href="./credits">Credits</li></a>
                     </ul>
                 </div>
                 <div class="footerColumn">
@@ -316,55 +345,6 @@
     <!-- scroll reveal effect -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <script>function updateCountdowns(countdowns) {
-            // Function to get current time in AEST
-            function getCurrentTimeInAEST() {
-                var now = new Date();
-                var timeOffset = now.getTimezoneOffset();
-                var aestOffset = 10; // AEST is UTC+10 (i think this changes with daylight savings soooo, idk how to account for that, im lazy)
-                return new Date(now.getTime() + (timeOffset + aestOffset) * 60000); // Convert minutes to milliseconds (mafs)
-            }
-
-            // Iterate over each countdown
-            countdowns.forEach(function (countdown) {
-                var targetDate = new Date(countdown.endDate); // Parse end date
-                var divClass = countdown.divClass;
-
-                var x = setInterval(function () {
-                    var nowAEST = getCurrentTimeInAEST(); // Get current time in AEST
-                    var distance = targetDate - nowAEST;
-
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Calculate days, hours, minutes, seconds (basic algebra)
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    var countdownElements = document.getElementsByClassName(divClass);
-                    Array.from(countdownElements).forEach(function (element) {
-                        element.querySelector('.days').innerHTML = days;
-                        element.querySelector('.hours').innerHTML = hours;
-                        element.querySelector('.minutes').innerHTML = minutes;
-                        element.querySelector('.seconds').innerHTML = seconds;
-
-                        if (distance < 0) {
-                            clearInterval(x);
-                            element.innerHTML = "EXPIRED";
-                        }
-                    });
-                }, 1000);
-            });
-        }
-
-        // Example usage:
-        var countdowns = [
-            { divClass: "aventurineTimer", endDate: "2024-05-08T14:59:00+10:00" }, // Adjusted to AEST
-            { divClass: "robinTimer", endDate: "2024-05-08T15:00:00+10:00" },
-            { divClass: "boothillTimer", endDate: "2024-05-29T14:59:00+10:00" }, // Adjusted to AEST (so then it doesnt matter what timezone the user is in,  itll calculate the correct time with AEST as the set time, i assume this is how it works in this game, i dont play it)
-            // Add more countdowns as needed
-        ];
-
-        updateCountdowns(countdowns);
-    </script>
     <!-- custom javascript link -->
     <script src="script.js"></script>
 </body>
